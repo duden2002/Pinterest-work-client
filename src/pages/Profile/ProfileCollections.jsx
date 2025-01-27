@@ -75,7 +75,7 @@ function ProfileCollections({
           if (newFolderName) {
             axios
               .put(
-                `http://localhost:3001/collection/editcollection/${folderName}`,
+                `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/collection/editcollection/${folderName}`,
                 {
                   newGroupName: newFolderName,
                   PostId: addPostId,
@@ -101,7 +101,7 @@ function ProfileCollections({
           if (postsToRemove.length > 0) {
             axios
               .put(
-                `http://localhost:3001/collection/editcollection/${folderName}`,
+                `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/collection/editcollection/${folderName}`,
                 {
                   newGroupName: null,
                   PostId: postsToRemove.map((post) => post.PostId),
@@ -123,7 +123,7 @@ function ProfileCollections({
       const deleteFolder = (folderName) => {
         axios
           .delete(
-            `http://localhost:3001/collection/deletecollection/${folderName}`,
+            `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/collection/deletecollection/${folderName}`,
             {
               withCredentials: true,
             }
@@ -171,7 +171,7 @@ function ProfileCollections({
       const addGroupToCollection = async (collectionId) => {
         try {
           await axios.put(
-            "http://localhost:3001/collection/addcollection",
+            "https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/collection/addcollection",
             {
               PostId: addPostId, // Тело запроса
               groupName: groupName,
