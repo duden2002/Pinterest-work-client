@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 export const checkSubscriptionStatus = async (userId) => {
-  const response = await axios.get(`http://localhost:3001/auth/subscriptions/status/${userId}`, {
+  const response = await axios.get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/subscriptions/status/${userId}`, {
     withCredentials: true, // Передаем cookie с токеном
   });
   console.log(response.data)
@@ -10,25 +10,25 @@ export const checkSubscriptionStatus = async (userId) => {
 }
 
 export const subscribeToUser = async (userId) => {
-  return axios.post(`http://localhost:3001/auth/subscribe/${userId}`, {}, {
+  return axios.post(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/subscribe/${userId}`, {}, {
     withCredentials: true, // Добавляем для передачи cookie
   });
 };
 
 export const unsubscribeFromUser = async (userId) => {
-  return axios.post(`http://localhost:3001/auth/unsubscribe/${userId}`, {}, {
+  return axios.post(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/unsubscribe/${userId}`, {}, {
     withCredentials: true,
   });
 };
 
 export const getFollowers = async (userId) => {
-  return axios.get(`http://localhost:3001/auth/followers/${userId}`, {
+  return axios.get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/followers/${userId}`, {
     withCredentials: true,
   });
 };
 
 export const getFollowing = async (userId) => {
-  return axios.get(`http://localhost:3001/auth/following/${userId}`, {
+  return axios.get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/following/${userId}`, {
     withCredentials: true,
   });
 };

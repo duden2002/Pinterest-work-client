@@ -13,7 +13,7 @@ function Registation({closeModal, openLogin}) {
     password: "",
   }
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/auth", data).then((response) => {
+    axios.post("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth", data).then((response) => {
       if (response.data.error) {
         console.log("error")
         regRef.current.notifyError(response.data.error)

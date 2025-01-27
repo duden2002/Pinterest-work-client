@@ -34,7 +34,7 @@ function Post() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const postResponse = await axios.get(`http://localhost:3001/posts/byId/${id}`);
+        const postResponse = await axios.get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts/byId/${id}`);
         setPostObject(postResponse.data);
         setTags(postResponse.data.tags.split(","));
         setUsername(postResponse.data.UserId);
