@@ -64,7 +64,7 @@ function Profile() {
               userPhoto &&
               userPhoto.userPhoto &&
               !userPhoto.userPhoto.includes("null")
-                ? `http://localhost:3001/${userPhoto.userPhoto}`
+                ? `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/${userPhoto.userPhoto}`
                 : null,
           };
         });
