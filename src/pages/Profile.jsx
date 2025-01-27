@@ -46,13 +46,13 @@ function Profile() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-    await axios.get(`http://localhost:3001/auth/basicinfo/${id}`).then((response) => {
+    await axios.get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/basicinfo/${id}`).then((response) => {
       setuserPhoto(response.data.userPhoto);
       setUserInfo(response.data.username);
     });
 
     await axios
-      .get("http://localhost:3001/posts", { withCredentials: true })
+      .get("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts", { withCredentials: true })
       .then((response) => {
         const postsWithPhotos = response.data.listOfPosts.map((post) => {
           const userPhoto = Array.isArray(response.data.usersImages)
@@ -75,7 +75,7 @@ function Profile() {
       });
 
     await axios
-      .get(`http://localhost:3001/posts/byuserid/${id}`, {
+      .get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts/byuserid/${id}`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -98,7 +98,7 @@ function Profile() {
               userPhoto &&
               userPhoto.userPhoto &&
               !userPhoto.userPhoto.includes("null")
-                ? `http://localhost:3001/${userPhoto.userPhoto}`
+                ? `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/${userPhoto.userPhoto}`
                 : null,
           };
         });
@@ -116,7 +116,7 @@ function Profile() {
               userPhoto &&
               userPhoto.userPhoto &&
               !userPhoto.userPhoto.includes("null")
-                ? `http://localhost:3001/${userPhoto.userPhoto}`
+                ? `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/${userPhoto.userPhoto}`
                 : null,
           };
         });
@@ -138,7 +138,7 @@ function Profile() {
                 userPhoto &&
                 userPhoto.userPhoto &&
                 !userPhoto.userPhoto.includes("null")
-                  ? `http://localhost:3001/${userPhoto.userPhoto}`
+                  ? `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/${userPhoto.userPhoto}`
                   : null,
             };
           }
@@ -210,7 +210,7 @@ function Profile() {
 
       try {
         const response = await axios.post(
-          "http://localhost:3001/auth/avatar",
+          "https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/avatar",
           formData,
           {
             withCredentials: true,

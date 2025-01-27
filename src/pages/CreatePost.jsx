@@ -51,7 +51,7 @@ function CreatePost() {
     formData.append('image', image);
     formData.append('tags', tags);
 
-    axios.post("http://localhost:3001/posts", formData, {
+    axios.post("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts", formData, {
       withCredentials: true,
       headers: { "Content-Type": "multipart/form-data" }
     })

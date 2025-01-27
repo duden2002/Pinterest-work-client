@@ -25,14 +25,14 @@ const DropdownMenu = () => {
   }, []);
 
   axios
-    .get(`http://localhost:3001/auth/basicinfo/${authState.id}`)
+    .get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/basicinfo/${authState.id}`)
     .then((response) => {
       setUserPhoto(response.data.userPhoto);
     });
 
   const logout = () => {
     axios
-      .post("http://localhost:3001/auth/logout", {}, { withCredentials: true })
+      .post("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/logout", {}, { withCredentials: true })
       .then(() => {
         setAuthState({ username: "", id: 0, status: false });
       });

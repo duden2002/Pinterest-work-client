@@ -45,7 +45,7 @@ function Post() {
   
     const fetchComments = async () => {
       try {
-        const commentsResponse = await axios.get(`http://localhost:3001/comment/${id}`);
+        const commentsResponse = await axios.get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/comment/${id}`);
         const postsWithPhotos = commentsResponse.data.comments.map((post) => {
           const userPhoto = Array.isArray(commentsResponse.data.user)
             ? commentsResponse.data.user.find((user) => user.username === post.username)
@@ -60,7 +60,7 @@ function Post() {
             UserId: userId && userId.username.includes(post.username) ? userId.id : null,
             userPhoto:
               userPhoto && userPhoto.userPhoto && !userPhoto.userPhoto.includes("null")
-                ? `http://localhost:3001/${userPhoto.userPhoto}`
+                ? `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/${userPhoto.userPhoto}`
                 : null,
           };
         });
@@ -74,7 +74,7 @@ function Post() {
       if (authState.token) {
         try {
           const subscriptionsResponse = await axios.get(
-            `http://localhost:3001/auth/subscriptions/status/${username}`,
+            `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/subscriptions/status/${username}`,
             { withCredentials: true }
           );
           setCheckSubscribe(subscriptionsResponse.data.isSubscribed);
@@ -88,7 +88,7 @@ function Post() {
     const fetchRecommendations = async () => {
       try {
         const recommendationsResponse = await axios.get(
-          `http://localhost:3001/posts/recommendations/${id}`
+          `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts/recommendations/${id}`
         );
         setRecommendations(recommendationsResponse.data.recommendations);
       } catch (error) {
@@ -118,14 +118,14 @@ function Post() {
   }, [username]); // `username` остается зависимостью
 
   axios
-    .get(`http://localhost:3001/auth/basicinfo/${username}`)
+    .get(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/basicinfo/${username}`)
     .then((response) => {
       setUserPhoto(response.data.userPhoto);
     });
 
   const deleteComment = (commentId) => {
     axios
-      .delete(`http://localhost:3001/comment/${commentId}`, {
+      .delete(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/comment/${commentId}`, {
         withCredentials: true,
       })
       .then(() => {
@@ -140,7 +140,7 @@ function Post() {
 
   const deletePost = (id, title) => {
     axios
-      .delete(`http://localhost:3001/posts/${id}`, { withCredentials: true })
+      .delete(`https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts/${id}`, { withCredentials: true })
       .then(() => {
         navigate("/posts");
         notiRef.current.notifySuccess(`Пост ${title} успешно удален`);
@@ -167,7 +167,7 @@ function Post() {
     }
 
     axios
-      .post("http://localhost:3001/comment", formData, {
+      .post("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/comment", formData, {
         withCredentials: true,
         headers: { "Content-Type": "multipart/form-data" },
       })
@@ -207,7 +207,7 @@ function Post() {
       if (tags.length !== 0) formDataForPost.append("tags", tags.join(","));
 
       axios
-        .put("http://localhost:3001/posts/changePost", formDataForPost, {
+        .put("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts/changePost", formDataForPost, {
           withCredentials: true,
           headers: { "Content-Type": "multipart/form-data" },
         })

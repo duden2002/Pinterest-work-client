@@ -28,7 +28,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/auth/auth", { withCredentials: true })
+      .get("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/auth", { withCredentials: true })
       .then((response) => {
         if (response.data.error) {
           setAuthState({ ...authState, status: false });
@@ -44,7 +44,7 @@ function App() {
 
   const logout = () => {
     axios
-      .post("http://localhost:3001/auth/logout", {}, { withCredentials: true })
+      .post("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/logout", {}, { withCredentials: true })
       .then(() => {
         setAuthState({ username: "", id: 0, status: false });
       });

@@ -9,7 +9,7 @@ const UsersButtons = ({ post, focusImage, focusBtn, setFocusBtn, authState, setL
         if (authState.status === true) {
           axios
             .post(
-              "http://localhost:3001/like",
+              "https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/like",
               { PostId: postId },
               { withCredentials: true }
             )
@@ -53,7 +53,7 @@ const UsersButtons = ({ post, focusImage, focusBtn, setFocusBtn, authState, setL
         if (authState.status === true) {
           axios
             .post(
-              "http://localhost:3001/collection",
+              "https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/collection",
               { PostId: postId },
               { withCredentials: true }
             )

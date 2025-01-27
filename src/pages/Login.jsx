@@ -24,7 +24,7 @@ function Login({ closeModal, openRegistration}) {
 
     const onSubmit = (data) => {
         console.log("fdgdg")
-        axios.post("http://localhost:3001/auth/login", data, { withCredentials: true })
+        axios.post("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/auth/login", data, { withCredentials: true })
             .then((response) => {
                 console.log("dfgfddfgg",response)
                 if (response.data.error) {
