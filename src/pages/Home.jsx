@@ -140,6 +140,8 @@ function Home() {
   }
 
 
+  console.log(listOfPosts)
+
   return (
     <div>
       <Notifications ref={notiRef} />
