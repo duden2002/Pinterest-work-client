@@ -25,10 +25,10 @@ function Home() {
     const fetchPosts = async () => {
       try {
         const response = authState.status
-          ? await axios.get("http://localhost:3001/posts", {
+          ? await axios.get("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts", {
               withCredentials: true,
             })
-          : await axios.get("http://localhost:3001/posts/default");
+          : await axios.get("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts/default");
 
         const likedPostIds =
           response.data.likedPosts?.map((like) => like.PostId) || [];
@@ -48,7 +48,7 @@ function Home() {
               userPhoto &&
               userPhoto.userPhoto &&
               !userPhoto.userPhoto.includes("null")
-                ? `http://localhost:3001/${userPhoto.userPhoto}`
+                ? `https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/${userPhoto.userPhoto}`
                 : null,
           };
         });
@@ -139,8 +139,6 @@ function Home() {
     }
   }
 
-
-  console.log(listOfPosts)
 
   return (
     <div>
