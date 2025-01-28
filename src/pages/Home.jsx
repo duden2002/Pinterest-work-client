@@ -25,10 +25,10 @@ function Home() {
     const fetchPosts = async () => {
       try {
         const response = authState.status
-          ? await axios.get("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts", {
+          ? await axios.get("http://localhost:3001/posts", {
               withCredentials: true,
             })
-          : await axios.get("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts/default");
+          : await axios.get("http://localhost:3001/posts/default");
 
         const likedPostIds =
           response.data.likedPosts?.map((like) => like.PostId) || [];
