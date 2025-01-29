@@ -172,7 +172,7 @@ function Home() {
                 }}
                 src={post.imagePath}
                 alt={post.title}
-              />
+              /> {console.log(post.imagePath)}
               <div className="tags-containerHome">
 
     <div
