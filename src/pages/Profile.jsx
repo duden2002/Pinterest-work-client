@@ -188,8 +188,6 @@ function Profile() {
           canvas.toBlob((blob) => {
             resolve(blob); // Возвращаем изображение как Blob
           }, "image/jpeg"); // Или "image/png", в зависимости от формата
-
-            location.reload();
           
         } catch {
           alert("Фото не было изменено");
