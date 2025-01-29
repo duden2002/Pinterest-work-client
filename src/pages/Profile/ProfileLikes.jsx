@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import UsersButtons from '../../components/UsersButtons'
+import {useNavigate} from 'react-router-dom'
 
 function ProfileLikes( {focusImage, setFocusImage, focusBtn, setFocusBtn, authState, setLikedPosts, likedPosts, setAddCollectPosts, addCollectPosts} ) {
+  let navigate = useNavigate
     useEffect(() => {
         console.log(addCollectPosts)
     }, [likedPosts])
