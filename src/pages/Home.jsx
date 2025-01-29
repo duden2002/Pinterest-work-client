@@ -24,11 +24,12 @@ function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        const baseURL = import.meta.env.VITE_BASE_URL;
         const response = authState.status
-          ? await axios.get("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts", {
+          ? await axios.get(`${baseURL}/posts`, {
               withCredentials: true,
             })
-          : await axios.get("https://dka-pinterest-work-backend-e5b6f2c9ce66.herokuapp.com/posts/default");
+          : await axios.get(`${baseURL}/posts/default`);
 
         const likedPostIds =
           response.data.likedPosts?.map((like) => like.PostId) || [];
